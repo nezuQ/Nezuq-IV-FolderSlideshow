@@ -2,8 +2,7 @@
 
 "Nezuq-IV-FolderSlideshow"は、画像ビューワー"[IrfanView](https://www.irfanview.com/)"で複数画像フォルダを対象にしたスライドショーを見る為のPowershellスクリプトです。  
 複数画像フォルダ又はそれらのパスを列挙したテキストファイルをスクリプトファイルにドラッグ＆ドロップする事で、スライドショーが始まります。  
-  // "Nezuq-IV-FolderSlideshow" is a Powershell script for viewing a slideshow of multiple image folders in the image viewer "IrfanView".  
-  // You can start a slideshow by dragging and dropping multiple image folders or a text file enumerating their paths into a script file.  
+  // "Nezuq-IV-FolderSlideshow" is a Powershell script for viewing a slideshow of multiple image folders in the image viewer "IrfanView". You can start a slideshow by dragging and dropping multiple image folders or a text file enumerating their paths into a script file.  
 
 
 # 使用方法 (Usage)
@@ -17,13 +16,12 @@
 
 画像フォルダのパスをテキストファイル（文字コード：UTF8）に、改行で区切って列挙します。  
 そのテキストファイルを「Nezuq-IV-FolderSlideshow.cmd」にドラッグ＆ドロップします。  
-  // Enumerate the path to the image folder in a text file (character code: UTF8), separated by a new line.  
-  // Drag and drop the text file to "Nezuq-IV-FolderSlideshow.cmd".  
+  // Enumerate the path to the image folder in a text file (character code: UTF8), separated by a new line. Drag and drop the text file to "Nezuq-IV-FolderSlideshow.cmd".  
 
 
 # インストール方法 (Installation)
 
-1. 画像ビューワー「IrfanView」をインストールします。
+1. 画像ビューワー「IrfanView」をインストールします。  
 「IrfanView」定番の画像ビューワー - 窓の杜  
 https://forest.watch.impress.co.jp/library/software/irfanview/  
 ※インストール先は「C:\Program Files\IrfanView」である事が想定されています。  
@@ -31,7 +29,7 @@ https://forest.watch.impress.co.jp/library/software/irfanview/
   // https://www.irfanview.com/64bit.htm  
   // The installation location is assumed to be "C:Program Files\IrfanView".  
 
-2. 「IrfanView」のスライドショー設定をします。（メニューバー[ファイル] >> [スライドショー]）
+2. 「IrfanView」のスライドショー設定をします。（メニューバー[ファイル] >> [スライドショー]）  
 ※"スライドの方法"の欄で、スライドショーの表示速度を調整できます。  
 ※"実行モード"の欄で、ウィンドウの大きさや位置を調整できます。  
 ※スライドショー設定画面の右上の×ボタンで閉じても入力中の設定は保存されました。  
@@ -40,13 +38,13 @@ https://forest.watch.impress.co.jp/library/software/irfanview/
   // "Play mode" menu allows you to adjust the size and position of the window.  
   // Even if you close the slide show setting screen by clicking the X button at the top right corner, the settings you are entering will be saved.  
 
-3. 本プロジェクト（ファイル一式）をダウンロードします。
+3. 本プロジェクト（ファイル一式）をダウンロードします。  
   // 3. Download this project (complete set of files).  
 
-4. プロジェクト内の「Nezuq-IV-FolderSlideshow.cmd」に先の使用方法で画像フォルダを指定します。
+4. プロジェクト内の「Nezuq-IV-FolderSlideshow.cmd」に先の使用方法で画像フォルダを指定します。  
   // 4. In the project, specify the image folder in "Nezuq-IV-FolderSlideshow.cmd" with the previous usage.  
 
-5. スライドショーが開始します。
+5. スライドショーが開始します。  
   // 5. The slideshow begins.  
 
 
