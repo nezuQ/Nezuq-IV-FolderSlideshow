@@ -1,7 +1,7 @@
 # IrfanView exe file
 $IrfanView = 'C:\Program Files\IrfanView\i_view64.exe'
 # Temporary folder (Unzipped image folder)
-$TmpDirPath = "$PSScriptRoot\__temp__"
+$TmpDirPath = "$PSScriptRoot\__temp__\" + (Get-Date -Format "yyyyMMdd-hhmmss")
 # Temporary file (Image file paths)
 $TmpFilePath = "$TmpDirPath\_slideshow.tmp"
 # Number of spaces for natural sort

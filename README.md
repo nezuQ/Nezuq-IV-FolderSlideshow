@@ -71,8 +71,8 @@ https://forest.watch.impress.co.jp/library/software/irfanview/
 * テキストファイルを指定する場合は、文字コードはUTF8に限定されます。  
   // If you specify a text file, the character set is limited to UTF8.
 
-* スライドショーが開始されると、スクリプトファイルと同じフォルダ内に一時フォルダ「`__temp__`」が作成されます。この一時フォルダは、スライドショーが終了すると削除されます。  
-  // After the slideshow starts, a temporary folder "`__temp__`" will be created in the same folder as the script file. The temporary folder will be deleted after the slideshow is over.
+* スライドショーが開始されると、スクリプトファイルと同じフォルダ内に一時フォルダ「`__temp__`」が作成されます。その中に生成されるフォルダ・ファイルは、スライドショーが終了されると、削除されます。  
+  // After the slideshow starts, a temporary folder "`__temp__`" will be created in the same folder as the script file. The folders and files created in it will be deleted when the slideshow is finished.
 
 
 # ライセンス (License)
