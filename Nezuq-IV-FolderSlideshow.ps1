@@ -53,6 +53,12 @@ function unzipImgDir($path){
     $Script:cntTmpImgDir += 1
     $tmpImgDirPath = "$TmpDirPath\$Script:cntTmpImgDir"
     Expand-Archive -LiteralPath $path -DestinationPath $tmpImgDirPath -Force
+    $tmpChildImgDirPaths = sortPaths((Get-ChildItem -LiteralPath $tmpImgDirPath).FullName)
+    $cntChildTmpImgDir = 0
+    foreach($tmpChildImgDirPath in $tmpChildImgDirPaths) {
+        $cntChildTmpImgDir = $cntChildTmpImgDir + 1
+        Rename-Item -LiteralPath $tmpChildImgDirPath -NewName $cntChildTmpImgDir
+    }
     return sortPaths((Get-ChildItem -LiteralPath $tmpImgDirPath).FullName)
 }
 
