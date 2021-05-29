@@ -4,6 +4,7 @@ powershell Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
 set ADDRESSES=%*
 set ADDRESSES2=%ADDRESSES:'=''%
-powershell "%~dp0Nezuq-IV-FolderSlideshow.ps1" %ADDRESSES2:"='%
+set ADDRESSES3=%ADDRESSES2:&=^&%
+powershell "%~dp0Nezuq-IV-FolderSlideshow.ps1" %ADDRESSES3:"='%
 
 powershell Set-ExecutionPolicy %EXEC_POLICY% -Scope CurrentUser
