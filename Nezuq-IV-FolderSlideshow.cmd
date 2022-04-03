@@ -1,4 +1,9 @@
-cd %~dp0
+if not "%~0"=="%~dp0.\%~nx0" (
+    start /min cmd /c,"%~dp0.\%~nx0" %*
+    exit
+)
+
+cd /D %~dp0
 FOR /F %%i in ('powershell Get-ExecutionPolicy') do set EXEC_POLICY=%%i
 powershell Set-ExecutionPolicy Unrestricted -Scope CurrentUser
 
