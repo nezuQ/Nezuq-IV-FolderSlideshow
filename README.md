@@ -53,6 +53,18 @@ https://forest.watch.impress.co.jp/library/software/irfanview/
   // 5. The slideshow begins.  
 
 
+# 追加機能（Additional features）
+
+* 画像フォルダの代わりに、PDFファイル（拡張子:.pdf）を指定する事もできます。その場合は、Ghostscriptのインストールが必要です。  
+  // Instead of image folders, you can also specify pdf files (extension:.pdf). In that case, you need to install Ghostscript.  
+
+Ghostscript : Downloads
+https://www.ghostscript.com/releases/gsdnld.html
+
+※インストール先は「C:\Program Files\gs\gs{version}」である事が想定されています。  
+  // The installation location is assumed to be "C:\Program Files\gs\gs{version}".  
+
+
 # 動作環境 (Environments)
 
 次の環境で動作確認しています。  
@@ -60,7 +72,8 @@ https://forest.watch.impress.co.jp/library/software/irfanview/
 
 * Microsoft Windows 10 Home
 * Powershell (PSVersion:5.1, PSEdition:Desktop)
-* IrfanView 4.57 - 64bit
+* IrfanView 4.60 - 64bit
+* Ghostscript 9.56.1 for Windows (64 bit)
 
 
 # 注意事項 (Note)
@@ -79,8 +92,10 @@ https://forest.watch.impress.co.jp/library/software/irfanview/
 
 「Nezuq-IV-FolderSlideshow」は、[MIT license](https://en.wikipedia.org/wiki/MIT_License)です。  
 ※「IrfanView」自体のライセンスは、[本家サイト](https://www.irfanview.com/main_what_is_engl.htm)をご確認下さい。  
+※「Ghostscript」自体のライセンスも、[本家サイト](https://www.ghostscript.com/licensing/index.html)をご確認下さい。  
   //This software is released under the [MIT License](https://en.wikipedia.org/wiki/MIT_License), see License.txt.  
   //For the license of "IrfanView" itself, please refer to [Home Page](https://www.irfanview.com/main_what_is_engl.htm).  
+  //For the license of "Ghostscript" itself, please refer to [Home Page](https://www.ghostscript.com/licensing/index.html).  
 
 
 # 作者 (Author)

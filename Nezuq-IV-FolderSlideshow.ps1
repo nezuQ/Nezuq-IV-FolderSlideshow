@@ -1,5 +1,7 @@
 # IrfanView exe file
 $IrfanView = 'C:\Program Files\IrfanView\i_view64.exe'
+# Ghostscript exe file pattern
+$GhostscriptPathPattern = 'C:\Program Files\gs\gs*\bin\gswin??.exe'
 # Temporary folder (Unzipped image folder)
 $TmpDirPath = "$PSScriptRoot\__temp__\" + (Get-Date -Format "yyyyMMdd-hhmmss")
 # Temporary file (Image file paths)
@@ -24,6 +26,23 @@ function isZip($path){
     return $FALSE
 }
 
+function isPdf($path){
+    <#
+        .SYNOPSIS
+        Determine if it is the PDF file.
+
+        .DESCRIPTION
+        Returns true if the extension is "pdf".
+
+        .PARAMETER path
+        Target file path
+    #>
+    if((Get-Item -LiteralPath $path).Extension -eq '.pdf') {
+        return $TRUE
+    }
+    return $FALSE
+}
+
 function sortPaths($paths){
     <#
         .SYNOPSIS
@@ -39,6 +58,7 @@ function sortPaths($paths){
 }
 
 $cntTmpImgDir = 0
+
 function unzipImgDir($path){
     <#
         .SYNOPSIS
@@ -59,6 +79,30 @@ function unzipImgDir($path){
         $cntChildTmpImgDir = $cntChildTmpImgDir + 1
         Rename-Item -LiteralPath $tmpChildImgDirPath -NewName $cntChildTmpImgDir
     }
+    return sortPaths((Get-ChildItem -LiteralPath $tmpImgDirPath).FullName)
+}
+
+$Ghostscript = if(Test-Path -Path $GhostscriptPathPattern){Write-Output (Get-Item -Path $GhostscriptPathPattern)[0].FullName}else{Write-Output $NULL}
+
+function pdf2ImgDir($path){
+    <#
+        .SYNOPSIS
+        Convert the PDF file to an image folder and place it in the temporary folder.
+
+        .DESCRIPTION
+        Returns the path to the image folder.
+
+        .PARAMETER path
+        Target file path
+    #>
+
+    if(! $Ghostscript){
+        return $null
+    }
+    $Script:cntTmpImgDir += 1
+    $tmpImgDirPath = "$TmpDirPath\$Script:cntTmpImgDir"
+    $tmpChildImgDirPath = (New-Item -Path "$tmpImgDirPath\1" -ItemType Directory -Force).FullName
+    Start-Process $Ghostscript -ArgumentList @('-dNOPAUSE', '-dBATCH', '-sDEVICE=jpeg', "-sOutputFile=`"$tmpChildImgDirPath\%d.jpg`"", "`"$path`"") -Wait
     return sortPaths((Get-ChildItem -LiteralPath $tmpImgDirPath).FullName)
 }
 
@@ -100,13 +144,21 @@ $targetPaths | ForEach-Object {
         } elseif (isZip($_)) {
             # is Zip File (Zipped image folder)
             $pictDirPaths += unzipImgDir($_)
+        } elseif (isPdf($_)) {
+            # is PDF File
+            $pictDirPaths += pdf2ImgDir($_)
         } else {
             # is Path File (UTF8)
             $paths = @()
             (Get-Content -LiteralPath $_ -Encoding UTF8) | ForEach-Object {
                 if(isZip($_)) {
+                    # is Zip File (Zipped image folder)
                     $paths += unzipImgDir($_)
-                }else{
+                } elseif (isPdf($_)) {
+                    # is PDF File
+                    $paths += pdf2ImgDir($_)
+                } else {
+                    # is Others
                     $paths += $_
                 }
             }
