@@ -58,8 +58,8 @@ https://forest.watch.impress.co.jp/library/software/irfanview/
 * 画像フォルダの代わりに、PDFファイル（拡張子:.pdf）を指定する事もできます。その場合は、Ghostscriptのインストールが必要です。  
   // Instead of image folders, you can also specify pdf files (extension:.pdf). In that case, you need to install Ghostscript.  
 
-Ghostscript : Downloads
-https://www.ghostscript.com/releases/gsdnld.html
+Ghostscript : Downloads  
+https://www.ghostscript.com/releases/gsdnld.html  
 
 ※インストール先は「C:\Program Files\gs\gs{version}」である事が想定されています。  
   // The installation location is assumed to be "C:\Program Files\gs\gs{version}".  
