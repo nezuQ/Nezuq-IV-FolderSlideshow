@@ -151,7 +151,10 @@ $targetPaths | ForEach-Object {
             # is Path File (UTF8)
             $paths = @()
             (Get-Content -LiteralPath $_ -Encoding UTF8) | ForEach-Object {
-                if(isZip($_)) {
+                if((! $_) -Or (! (Test-Path -LiteralPath $_))) {
+                    # is Incorrect Path
+                    # skip
+                } elseif(isZip($_)) {
                     # is Zip File (Zipped image folder)
                     $paths += unzipImgDir($_)
                 } elseif (isPdf($_)) {
